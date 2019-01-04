@@ -4,7 +4,7 @@ import reactor.core.publisher.Mono;
 
 public class MonoTest {
 
-   /* @Test
+    @Test
     void firstMono() {
         Mono.just("A")
             .log()
@@ -15,7 +15,7 @@ public class MonoTest {
     void monoWithConsumer() {
         Mono.just("A")
                 .log()
-                .subscribe(System.out::println);
+                .subscribe(s -> System.out.println(s));
     }
 
     @Test
@@ -28,14 +28,14 @@ public class MonoTest {
                 .subscribe(System.out::println);
     }
 
-   @Test
+    @Test
     void emptyMono() {
         Mono.empty()
                 .log()
                 .subscribe(System.out::println);
     }
 
-  @Test
+    @Test
     void emptyCompleteConsumerMono() {
         Mono.empty()
                 .log()
@@ -59,7 +59,7 @@ public class MonoTest {
                 .subscribe();
     }
 
-   @Test
+    @Test
     void errorConsumerMono() {
         Mono.error(new Exception())
                 .log()
@@ -68,15 +68,15 @@ public class MonoTest {
                 );
     }
 
-      @Test
+    @Test
     void errorDoOnErrorMono() {
         Mono.error(new Exception())
                 .doOnError(e -> System.out.println("Error: " + e))
                 .log()
                 .subscribe();
-    }*/
+    }
 
-       @Test
+    @Test
     void errorOnErrorResumeMono() {
         Mono.error(new Exception())
                 .onErrorResume(e -> {
@@ -87,7 +87,7 @@ public class MonoTest {
                 .subscribe();
     }
 
-      @Test
+    @Test
     void errorOnErrorReturnMono() {
         Mono.error(new Exception())
                 .onErrorReturn("B")
